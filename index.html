@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Sistem Informasi</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px 0;
+            background-color: white;
+            font-family: "Times New Roman", serif;
+            color: black;
+        }
+
+        /* KOTAK PALING LUAR */
+        .halaman {
+            width: 95%;
+            margin: auto;
+            border: 1px solid black;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            margin: 10px;
+            height: 105px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        /* LOGO */
+        .logo {
+            width: 155px;
+            border-right: 1px solid #555;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            width: 35px;
+            height: auto;
+        }
+
+        /* BAGIAN NAVIGASI */
+        .nav-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 24px 10px;
+        }
+
+        .nav {
+            width: 100%;
+            height: 44px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 17px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-right: 1px solid black;
+        }
+
+        .nav a:nth-child(1) {
+            width: 25%;
+        }
+
+        .nav a:nth-child(2) {
+            width: 20%;
+        }
+
+        .nav a:nth-child(3) {
+            width: 22%;
+        }
+
+        .nav a:nth-child(4) {
+            width: 20%;
+        }
+
+        .nav a:nth-child(5) {
+            width: 15%;
+            border-right: none;
+        }
+
+        /* ADMISI */
+        .admisi {
+            width: 175px;
+            border-left: 1px solid black;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admisi a {
+            color: #551a8b;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        /* ================= JUDUL ================= */
+
+        .judul {
+            height: 108px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .judul h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* ================= ARTIKEL ================= */
+
+        .isi {
+            margin: 10px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        /* KOLOM ARTIKEL */
+        .artikel {
+            width: 75%;
+            border-right: 1px solid black;
+            padding: 30px 10px 30px 10px;
+        }
+
+        .artikel h2 {
+            margin: 0 0 22px 0;
+            font-size: 27px;
+        }
+
+        .artikel p {
+            margin: 0 0 20px 0;
+            font-size: 17px;
+            line-height: 1.15;
+        }
+
+        .artikel p a {
+            color: blue;
+        }
+
+        /* VIDEO */
+        .video {
+            width: 66%;
+            height: 430px;
+            margin-top: 12px;
+        }
+
+        .video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 25%;
+            padding: 30px 12px;
+        }
+
+        .sidebar h2 {
+            margin: 0 0 22px 0;
+            font-size: 23px;
+        }
+
+        .sidebar ul {
+            margin: 0 0 28px 20px;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 18px;
+            padding-left: 2px;
+            font-size: 17px;
+        }
+
+        .sidebar li a {
+            color: #551a8b;
+            font-weight: bold;
+        }
+
+        /* ================= FOOTER ================= */
+
+        /* GARIS PEMISAH ANTARA ARTIKEL DAN FOOTER */
+        .garis-pemisah {
+            border-top: 1px solid black;
+            margin: 0 -1px;
+        }
+
+        .footer {
+            margin: 10px 10px 10px 10px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        .footer-box {
+            padding: 30px 12px;
+            min-height: 320px;
+        }
+
+        .footer-box h3 {
+            margin: 0 0 25px 0;
+            font-size: 19px;
+        }
+
+        .footer-box p {
+            margin: 0 0 24px 0;
+            font-size: 17px;
+            line-height: 1.2;
+        }
+
+        .footer-box ul {
+            margin: 0;
+            padding-left: 28px;
+        }
+
+        .footer-box li {
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        /* KOLOM KIRI */
+        .footer-kiri {
+            width: 49%;
+            border-right: 1px solid black;
+        }
+
+        /* KOLOM TENGAH */
+        .footer-tengah {
+            width: 25%;
+            border-right: 1px solid black;
+        }
+
+        /* KOLOM KANAN */
+        .footer-kanan {
+            width: 26%;
+        }
+
+        /* ================= COPYRIGHT ================= */
+
+        .copyright {
+            border-top: 1px solid black;
+            padding: 10px 12px;
+        }
+
+        .copyright p {
+            margin: 0 0 5px 0;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .copyright .normal {
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="halaman">
+
+    <!-- ================= HEADER ================= -->
+
+    <div class="header">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="logotelkom.png" alt="Logo ITTelkom Surabaya">
+            <div>
+                SISTEM<br>
+                INFORMASI<br>
+                <small>ITTelkom Surabaya</small>
+            </div>
+        </div>
+
+        <!-- NAVIGASI -->
+        <div class="nav-area">
+
+            <div class="nav">
+
+                <a href="#">Tentang Kami</a>
+
+                <a href="#">Akademik</a>
+
+                <a href="#">Dosen &amp; Staf</a>
+
+                <a href="#">Kerja Sama</a>
+
+                <a href="#">Blog</a>
+
+            </div>
+
+        </div>
+
+        <!-- ADMISI -->
+        <div class="admisi">
+            <a href="#">Admisi</a>
+        </div>
+
+    </div>
+
+
+    <!-- ================= JUDUL ================= -->
+
+    <div class="judul">
+        <h1>Blog Sistem Informasi</h1>
+    </div>
+
+
+    <!-- ================= ARTIKEL + SIDEBAR ================= -->
+
+    <div class="isi">
+
+        <!-- ARTIKEL -->
+        <div class="artikel">
+
+            <h2>
+                Dua Wisudawan Sistem Informasi Berhasil Meraih Predikat Cumlaude
+            </h2>
+
+            <p>
+                Institut Teknologi Telkom Surabaya telah menggelar prosesi
+                wisuda ke-1 secara luring di hotel Grand Dafam, Surabaya pada
+                Sabtu (26/03/2022) kemarin. Prosesi wisuda ini merupakan yang
+                pertama dilakukan sejak kampus ini berdiri di tahun 2018 lalu.
+                Pada wisuda pertama ini, 16 wisudawan telah dinyatakan lulus
+                secara sah oleh Rektor ITTelkom Surabaya Bapak Dr. Tri Arief
+                Sardjono, S.T., M.T.
+            </p>
+
+            <p>
+                Seluruh wisudawan merupakan mahasiswa yang berhasil lulus dengan
+                masa studi 3.5 tahun. Dua diantaranya merupakan mahasiswa
+                program studi Sistem Informasi. Mereka adalah Amalina Tri Setya
+                Berliana dan Irene Dyah Ayuwati. Keduanya berhasil menyandang
+                gelar S.Kom dengan predikat cumlaude. Wisudawan dengan IPK
+                tertinggi adalah Amalina Tri Setya Berliana yang tidak lain
+                merupakan mahasiswa program studi Sistem Informasi dengan
+                IPK 3,96.
+            </p>
+
+            <p>
+                Pada prosesi wisuda ini pula, Rektor ITTelkom Surabaya telah
+                menyampaikan pesannya dengan penuh sukacita. Beliau berpesan
+                bagi seluruh wisudawan agar terus mengembangkan diri sehingga
+                dapat mengambil peran di era transformasi digital yang
+                disruptif ini. Acara wisuda ini dapat disaksikan melalui kanal
+                youtube ITTelkom Surabaya
+                <a href="#">https://youtu.be/k1-Erdkis6o</a>
+            </p>
+
+            <!-- VIDEO -->
+            <div class="video">
+                <iframe
+                    src="https://www.youtube.com/embed/k1-Erdkis6o"
+                    title="Video Wisuda ITTelkom Surabaya"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <h2>Artikel Terbaru</h2>
+
+            <ul>
+                <li>
+                    <a href="#">
+                        Dua Wisudawan Sistem Informasi Berhasil Meraih
+                        Predikat Cumlaude
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dua Mahasiswa Sistem Informasi Raih Penghargaan
+                        di ajang Putra Putri Jatim 2021
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        PLAYBOX hadir kembali !!! Segera daftarkan
+                        dirimu di PLAYBOX Season II
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dua Wisudawan Sistem Informasi Berhasil Meraih
+                        Predikat Cumlaude
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dua Mahasiswa Sistem Informasi Raih Penghargaan
+                        di ajang Putra Putri Jatim 2021
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        PLAYBOX hadir kembali !!! Segera daftarkan
+                        dirimu di PLAYBOX Season II
+                    </a>
+                </li>
+            </ul>
+
+
+            <h2>Artikel Terpopuler</h2>
+
+            <ul>
+                <li>
+                    <a href="#">
+                        Dua Wisudawan Sistem Informasi Berhasil Meraih
+                        Predikat Cumlaude
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dua Mahasiswa Sistem Informasi Raih Penghargaan
+                        di ajang Putra Putri Jatim 2021
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        PLAYBOX hadir kembali !!! Segera daftarkan
+                        dirimu di PLAYBOX Season II
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dua Wisudawan Sistem Informasi Berhasil Meraih
+                        Predikat Cumlaude
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Dua Mahasiswa Sistem Informasi Raih Penghargaan
+                        di ajang Putra Putri Jatim 2021
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- GARIS PEMISAH -->
+    <div class="garis-pemisah"></div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <div class="footer">
+
+        <!-- KIRI -->
+        <div class="footer-box footer-kiri">
+
+            <h3>Sistem Informasi</h3>
+
+            <p>
+                Situs resmi Program Studi Sistem Informasi Institut Teknologi
+                Telkom Surabaya. Website ini diperuntukkan sebagai media
+                komunikasi internal &amp; eksternal bagi mahasiswa, dosen,
+                dan karyawan.
+            </p>
+
+            <p>
+                Program Studi Sistem Informasi sudah ada sejak berdirinya
+                Institut Teknologi Telkom Surabaya, berdasarkan Keputusan
+                Menteri Riset, Teknologi, dan Pendidikan Tinggi no. 733 /
+                KPT / I / 2018.
+            </p>
+
+            <p>
+                Website ini menyajikan informasi tentang Program Studi Sistem
+                Informasi, profil, visi dan misi, struktur organisasi,
+                akademisi, kurikulum, dosen, penelitian dan pengabdian
+                kepada masyarakat.
+            </p>
+
+        </div>
+
+
+        <!-- TENGAH -->
+        <div class="footer-box footer-tengah">
+
+            <h3>Tautan Penting</h3>
+
+            <ul>
+                <li>Mahasiswa &amp; Alumni</li>
+                <li>Kerja Sama</li>
+                <li>Proyek</li>
+            </ul>
+
+            <br><br>
+
+            <h3>Tautan Bermanfaat</h3>
+
+            <ul>
+                <li>Telkom Indonesia</li>
+                <li>Yayasan Pendidikan Telkom</li>
+                <li>ITTelkom Surabaya</li>
+                <li>Website SMB</li>
+            </ul>
+
+        </div>
+
+
+        <!-- KANAN -->
+        <div class="footer-box footer-kanan">
+
+            <h3>Info Kontak</h3>
+
+            <ul>
+                <li>
+                    <b>Alamat:</b> Jl. Ketintang No.156, Surabaya,
+                    Jawa Timur 60231
+                </li>
+
+                <li>
+                    <b>Telepon:</b> +62 31 8280800
+                </li>
+
+                <li>
+                    <b>Email:</b> is@ittelkom-sby.ac.id
+                </li>
+            </ul>
+
+            <br><br>
+
+            <h3>Media Sosial</h3>
+
+            <ul>
+                <li>Instagram</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= COPYRIGHT ================= -->
+
+    <div class="copyright">
+
+        <p>Copyright © 2022 Information Systems</p>
+
+        <p class="normal">
+            Build with ♥ by CODER Team
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
